@@ -12,5 +12,4 @@ fi;
 values="$REPLY";
 values+="$args";
 
-echo $values | sort | tr " " "\n" | uniq -c | tail -n 1 | xargs | cut -d" " -f2;
-
+echo "$values" | sort | tr " " "\n" | uniq -c | tail -n 1 | xargs | cut -d" " -f2;
