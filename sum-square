@@ -1,0 +1,22 @@
+#!/bin/bash
+
+read -t1;
+
+if [ -z "$REPLY" ]; then
+    REPLY="";
+    args="$@";
+else
+    args=" $@";
+fi;
+values="$REPLY";
+values+="$args";
+
+
+square_sum=0;
+for value in $values;
+do
+    square_sum="$(echo "$value^2 + $square_sum" | bc -l)";
+done;
+
+echo $square_sum;
+    
