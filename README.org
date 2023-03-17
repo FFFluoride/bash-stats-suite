@@ -24,7 +24,7 @@ This means the programs will be able to take for example this:
 #+begin_src bash
 data="0 0 1 2 1 1 1 0 0"
 #+end_src
-And will be able to return:
+And will be able to return to stdout:
 #+begin_src bash
 "0 4\n1 4\n 2 1\n"
 #+end_src

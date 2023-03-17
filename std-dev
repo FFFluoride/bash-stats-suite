@@ -18,8 +18,6 @@ for val in $REPLY; do
     summation="$(echo "$remainder_squared + $summation" | bc -l)";
 done;
 
-echo "summation: $summation";
-
 sum_over_count="$(echo "$summation / $word_count" | bc -l)";
 
 echo "sqrt($sum_over_count)" | bc -l;
