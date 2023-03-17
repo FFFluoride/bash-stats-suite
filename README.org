@@ -1,0 +1,31 @@
+* bash-stats-suite
+** What is it?
+First and foremost, a suite of tools that can be used to do some
+basic statistics given a csv file and a bash shell. No need to use
+*****soft Excel. This is mostly for school as I don't like using excel
+or any free software alternatives, I much more like doing it from the
+terminal instead, reach out if you want to help or yknow fork.
+* About
+** Basic syntax
+The program will just manipulate string. Specifically space seperated
+I may change this later but this seems like a natural decision as in
+bash you can loop over a string of values seperated by data like so:
+#+begin_src bash
+  data="data1 data2 data3 data4";
+  for value in data;
+  do
+      echo "$value";
+  done;
+#+end_src
+
+** Tables
+Stuff like frequency tables will only be constructed not read my scripts.
+This means the programs will be able to take for example this:
+#+begin_src bash
+data="0 0 1 2 1 1 1 0 0"
+#+end_src
+And will be able to return:
+#+begin_src bash
+"0 4\n1 4\n 2 1\n"
+#+end_src
+The example above is a frequency table.
