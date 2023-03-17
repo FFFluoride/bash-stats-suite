@@ -1,4 +1,6 @@
 * Graph
 #+begin_src 
-mean mode std-dev sum sum-square 
+mode  std-dev  sum  sum-square
+                |
+               mean
 #+end_src

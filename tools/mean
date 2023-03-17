@@ -20,6 +20,7 @@ word_count="$(echo "$values" | wc -w )";
 
 echo "$word_count"
 
+# sum dependency
 summation="$(sum "$values")";
 
 echo "$summation / $word_count" | bc -l;
