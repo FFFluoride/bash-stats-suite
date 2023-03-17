@@ -1,9 +1,25 @@
 #!/bin/bash
 
+# reading from stdin
 read -t1;
 
-word_count="$(echo "$REPLY" | wc -w)";
+# seeing if the $REPLY is empty
+if [ -z "$REPLY" ]; then
+    REPLY="";
+    args="$@";
+    # only use args that are passed in, no space
+else
+    args=" $@";
+    # args to append later
+fi;
 
-summation="$(sum $REPLY)";
+values="$REPLY";
+values+="$args";
+
+word_count="$(echo "$values" | wc -w )";
+
+echo "$word_count"
+
+summation="$(sum "$values")";
 
 echo "$summation / $word_count" | bc -l;

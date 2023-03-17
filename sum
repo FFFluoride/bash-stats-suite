@@ -1,6 +1,6 @@
 #!/bin/bash
 
-
+# reads from stdin with a timeout of 1 in case of no input
 read -t1;
 
 if [ -z "$REPLY" ]; then
