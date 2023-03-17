@@ -1,0 +1,5 @@
+#!/bin/bash
+
+read -t1;
+
+echo $REPLY | sort | uniq -c | tail -1 | awk '{ print $2 }';

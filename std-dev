@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# std deviation is the sqrt of the sum of all args minus the mean over amount of args
+
+read -t1;
+
+word_count="$(echo "$REPLY" | wc -w)";
+
+word_count="$(echo "$word_count -1" | bc -l)";
+
+mean="$(echo "$REPLY" | mean)";
+
+summation=0;
+
+for val in $REPLY; do
+    remainder="$(echo "$val - $mean" | bc -l)";
+    remainder_squared="$(echo "$remainder ^ 2" | bc -l)";
+    summation="$(echo "$remainder_squared + $summation" | bc -l)";
+done;
+
+echo "summation: $summation";
+
+sum_over_count="$(echo "$summation / $word_count" | bc -l)";
+
+echo "sqrt($sum_over_count)" | bc -l;

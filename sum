@@ -1,0 +1,20 @@
+#!/bin/bash
+
+
+read -t1;
+
+if [ -z "$REPLY" ]; then
+    REPLY="";
+    args="$@";
+else
+    args=" $@";
+fi;
+values="$REPLY";
+values+="$args";
+
+total_sum=0;
+for value in $values; do
+    total_sum="$(echo "$value + $total_sum" | bc -l)";
+done;
+
+echo "$total_sum";
