@@ -2,4 +2,15 @@
 
 read -t1;
 
-echo $REPLY | sort | uniq -c | tail -1 | awk '{ print $2 }';
+if [ -z "$REPLY" ]; then
+    REPLY="";
+    args="$@";
+else
+    args=" $@";
+fi;
+
+values="$REPLY";
+values+="$args";
+
+echo $values | sort | tr " " "\n" | uniq -c | tail -n 1 | xargs | cut -d" " -f2;
+
