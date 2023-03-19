@@ -18,3 +18,4 @@ mean_value="$(echo "$values" | ./mean)";
 mean_value_squared="$(echo "$mean_value ^ 2" | bc -l)";
 quotient="$(echo "$square_sum / $count" | bc -l)";
 echo "$quotient - $mean_value" | bc -l;
+
