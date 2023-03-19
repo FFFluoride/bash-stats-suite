@@ -1,10 +1,10 @@
 * Graph
 #+begin_src 
-     [sum]       [freq]
-    /   \           |
+    [sum]         [freq]
+    /   \            |
 [mean][sum-square][mode]
     \   /
-  [variance]
+ [variance]
       |
-   [std-dev]
+  [std-dev]
 #+end_src
