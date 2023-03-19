@@ -1,6 +1,6 @@
 * Graph
 #+begin_src 
-std-dev  sum  sum-square freq
-          |                |
-         mean             mode
+std-dev  sum         freq
+        /   \            \
+      mean   sum-square   mode
 #+end_src
