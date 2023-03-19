@@ -1,6 +1,10 @@
 * Graph
 #+begin_src 
-std-dev sum      freq
-       /   \        \
-     mean sum-square mode
+     sum       freq
+    /   \          \
+mean     sum-square mode
+    \   /
+  variance
+      |
+   std-dev
 #+end_src
