@@ -31,4 +31,36 @@ for f in ${freqs:1}; do
     #prev="$sum";
 done;
 
-paste -d" " <(echo "$vals") <(echo "$cum_freqs" | tr " " "\n");
+while getopts 'ah' OPTION; do
+    case "$OPTION" in
+	a)
+	    arrows="true"
+	    ;;
+	h)
+	    header="true"
+	    ;;
+	*)
+	    echo "usage: $(echo "$(basename $0)") [-a] [-h]" >&2
+	    exit 1
+	    ;;
+    esac;
+done;
+
+arrow_var=" ";
+
+if [ "$arrows" = "true" ]; then
+    arrow_var="->";
+    if [ "$header" = "true" ]; then
+	echo "V${arrow_var}F";
+	header="false";
+    fi;
+fi;
+
+if [ "$header" = "true" ]; then
+    echo "V CF"
+fi;
+
+
+paste -d"$arrow_var" <(echo "$vals") \
+      <(echo "$cum_freqs" | tr " " "\n") | \
+    sed "s/-/->/g";

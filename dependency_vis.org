@@ -1,8 +1,8 @@
 * Graph
 #+begin_src 
-    [sum]         [freq]
-    /   \            |
-[mean][sum-square][mode]
+    [sum]             [freq]
+    /   \             /    \
+[mean][sum-square] [mode][cum-freq]
     \   /
  [variance]
       |
