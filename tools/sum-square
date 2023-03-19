@@ -13,4 +13,4 @@ values+="$args";
 
 
 square_sum=0;
-echo $values | tr " " "\n" | awk '{ print $1 ^ 2}' | xargs | sum;
+echo $values | tr " " "\n" | awk '{ print $1 ^ 2}' | xargs | ./sum;

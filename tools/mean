@@ -19,6 +19,6 @@ values+="$args";
 word_count="$(echo "$values" | wc -w )";
 
 # sum dependency
-summation="$(echo "$values" | sum)";
+summation="$(echo "$values" | ./sum)";
 
 echo "$summation / $word_count" | bc -l;
