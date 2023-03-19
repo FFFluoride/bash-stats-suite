@@ -4,11 +4,21 @@
 
 read -t1;
 
-word_count="$(echo "$REPLY" | wc -w)";
+if [ -z "$REPLY" ]; then
+    REPLY="";
+    args="$@";
+else
+    args=" $@";
+fi;
+
+values="$REPLY";
+values+="$args";
+
+word_count="$(echo "$values" | wc -w)";
 
 word_count="$(echo "$word_count -1" | bc -l)";
 
-mean="$(echo "$REPLY" | mean)";
+mean="$(echo "$values" | mean)";
 
 summation=0;
 
