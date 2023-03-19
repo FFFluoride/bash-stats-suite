@@ -12,4 +12,4 @@ fi;
 values="$REPLY";
 values+="$args";
 
-echo "$values" | sort | tr " " "\n" | uniq -c | tail -n 1 | xargs | cut -d" " -f2;
+echo "$values" | ./freq | sort -t " " -k2n | tail -n 1 | cut -d " " -f 1;
