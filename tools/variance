@@ -1,0 +1,20 @@
+#!/bin/bash
+
+read -t1;
+
+if [ -z "$REPLY" ]; then
+    REPLY="";
+    args="$@";
+else
+    args=" $@";
+fi;
+
+values="$REPLY";
+values+="$args";
+
+count="$(echo "$values" | wc -w )"
+square_sum="$(echo "$values" | ./sum-square)";
+mean_value="$(echo "$values" | ./mean)";
+mean_value_squared="$(echo "$mean_value ^ 2" | bc -l)";
+quotient="$(echo "$square_sum / $count" | bc -l)";
+echo "$quotient - $mean_value" | bc -l;
