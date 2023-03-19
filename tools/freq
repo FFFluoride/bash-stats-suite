@@ -44,5 +44,6 @@ if [ "$header" = "true" ]; then
     echo "V F"
 fi;
 echo "$values" | tr " " "\n" | sort | uniq -c |
-    grep -E "[0-9]+ [0-9]+" | sed -E "s/(\ ){2,}//g" | rev |
-    sed "s/\ /$arrow_var/g";
+    grep -E "[0-9]+ [0-9]+" | sed -E "s/(\ ){2,}//g"| sed "s/\ /~/g" | awk -F "~" '{ print $2 "~" $1}' | sed "s/~/$arrow_var/g"
+#echo "$table" | cut -d"~" -f2;
+#echo "$table" | cut -d"~" -f1;
