@@ -1,0 +1,34 @@
+#!/bin/bash
+
+read -t1;
+
+if [ -z "$REPLY" ]; then
+    REPLY="";
+    args="$@";
+    # only use args that are passed in, no space
+else
+    args=" $@";
+    # args to append later
+fi;
+
+values="$REPLY";
+values+="$args";
+
+vals="$(echo "$values" | ./freq | cut -d" " -f1)";
+freqs="$(echo "$values" | ./freq | cut -d" " -f2)";
+
+cum_freqs="$(echo "$freqs" | head -n 1)";
+
+prev="$cum_freqs";
+
+for f in ${freqs:1}; do
+    #echo "prev: $prev";
+    #echo "f: $f";
+    prev="$(echo "$prev + $f" | bc -l)";
+    cum_freqs+=" $prev";
+    #sum="$(echo "$f + $prev" | bc -l)";
+    #cum_freqs+=" $sum";
+    #prev="$sum";
+done;
+
+paste -d" " <(echo "$vals") <(echo "$cum_freqs" | tr " " "\n");
