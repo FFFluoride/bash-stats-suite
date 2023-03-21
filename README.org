@@ -6,18 +6,11 @@ basic statistics given a csv file and a bash shell. No need to use
 or any free software alternatives, I much more like doing it from the
 terminal instead, reach out if you want to help or yknow fork.
 ** How can I use this?
-I have prepared a different branch called release where you can 
-get all of the files and effectively paste it somewhere into one of 
-your directories that is also in your =$PATH= my favourite one to use 
-for personal scripts is =/usr/local/sbin=.
-If you don't want to use it in your path simply clone master and 
-when using those functions make sure you type the full path to it 
-(or relative to where you are). Say I'm in my 
-=~/dox/=. If I didn't put it in my 
-=/usr/local/sbin= and wanted the median, I 
-would have to say =./bash/sweetistcs/tools/median=.
-Needless to say, I recommend putting this in your path if you plan 
-on using it.
+Simply clone main and add all the program files to your path.
+Make sure the files are executable, if you only want a
+specific one refer to the dependecy tree to see what you need.
+Have a good day and remeber to stick their *****soft excel up their
+*REDACTED.
 * About
 ** Basic syntax
 The program will just manipulate string. Specifically space seperated
