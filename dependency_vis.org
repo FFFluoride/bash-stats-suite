@@ -3,10 +3,10 @@
           [sum]              [freq]
           /   \             /    \
 [sum-square] [mean]     [mode][cum-freq]
-            /   |  \
-           /    |   \
-          /     |    \
-   [median][nthtile][variance]
-                |
-            [std-dev]
+     |      /   |  \
+     |     /    |   \
+     |    /     |    \
+ [variance]  [median][nthtile]             
+     |
+ [std-dev]
 #+end_src
