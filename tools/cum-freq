@@ -62,5 +62,5 @@ fi;
 
 
 paste -d"$arrow_var" <(echo "$vals") \
-      <(echo "$cum_freqs" | tr " " "\n") | \
-    sed "s/-/->/g";
+      <(echo "$cum_freqs" | tr " " "\n") | sed "s/-/->/g" |
+    grep -E "(V${arrow_var}CF|[0-9]+\.?[0-9]+?${arrow_var}[0-9]+)";
