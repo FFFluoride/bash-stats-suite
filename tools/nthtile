@@ -61,7 +61,6 @@ precise="$(echo "$word_count * $nth_place" | bc -l)";
 rounded="$(printf "%.0f\n" "$precise")";
 rounded_plus_1="$(echo "$rounded + 1" | bc -l)";
 val1="$(echo "$values" | tr " " "\n" | sort -n | tr "\n" " " | cut -d" " -f"$rounded")";
-echo "$val1";
 val2="$val1";
 if [ "$interpolate" = "true" ]; then
     val2="$(echo "$values" | tr " " "\n" | sort -n | tr "\n" " " | cut -d" " -f"$(echo "$rounded + 1" | bc -l)")";
