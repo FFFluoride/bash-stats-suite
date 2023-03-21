@@ -1,0 +1,76 @@
+#!/bin/bash
+
+read -t1;
+
+if [ -z "$REPLY" ]; then
+    REPLY="";
+    args="$@";
+else
+    args=" $@";
+fi;
+
+values="$REPLY";
+values+="$args";
+
+upper="false";
+lower="false";
+
+nth_place="0.75";
+
+while getopts 'n:' OPTION; do
+    case "$OPTION" in
+	n)
+	    nth_place="$OPTARG" # This must be a floating point number
+	    ;;
+	*)
+	    base_name="$(echo "$(basename $0)")";
+	    echo "usage $base_name [-n {num:0 >= num >= 1}]" >&2
+	    exit 1;
+	    ;;
+    esac;
+done;
+
+if [[ "$(echo "$nth_place > 1.0" | bc -l)" = 1 ]] ||
+       [[ "$(echo "$nth_place < 0.0" | bc -l)" = 1 ]]; then
+    echo "invalid value for n: $nth_place";
+    echo "usage $basename [-n {num: 0 >= num >= 1}]" >&2;
+    exit 1;
+fi;
+
+values="$(echo "$values" | sed -r "s/-n [0-9]*\.?([0-9]*)? //g")";
+
+word_count="$(echo "$values" | wc -w)";
+#echo "$values";
+
+interpolate="false";
+
+if [[ "$(echo "$nth_place == 1" | bc -l)" = 1 ]]; then
+    echo "$values" | tr " " "\n" | sort -n | tail -n 1;
+    exit 0;
+elif [[ "$(echo "$nth_place == 0" | bc -l)" = 1 ]]; then
+    echo "$values" | tr " " "\n" | sort -n | head -n 1;
+    exit 0;
+elif [[ "$(echo "$nth_place == 0.5" | bc -l)" = 1 ]]; then
+    even_check="$(($word_count % 2))";
+    if [ "$even_check" = 0 ]; then
+       interpolate="true";
+    fi;
+fi;
+precise="$(echo "$word_count * $nth_place" | bc -l)";
+#echo "$precise";
+rounded="$(printf "%.0f\n" "$precise")";
+rounded_plus_1="$(echo "$rounded + 1" | bc -l)";
+val1="$(echo "$values" | tr " " "\n" | sort -n | tr "\n" " " | cut -d" " -f"$rounded")";
+echo "$val1";
+val2="$val1";
+if [ "$interpolate" = "true" ]; then
+    val2="$(echo "$values" | tr " " "\n" | sort -n | tr "\n" " " | cut -d" " -f"$(echo "$rounded + 1" | bc -l)")";
+fi;
+#echo "$values" | ./cum-freq;
+echo "$val1 $val2" | ./mean;
+
+#if [ "$nth_place" -gt 1 ] || [ "$nth_place" -lt 0 ]; then
+#    echo "usage $basename [-n {num: 0>= num >=1}]" >&2;
+#    exit 1;
+#fi;
+
