@@ -9,13 +9,13 @@ terminal instead, reach out if you want to help or yknow fork.
 I have prepared a different branch called release where you can 
 get all of the files and effectively paste it somewhere into one of 
 your directories that is also in your $PATH my favourite one to use 
-for personal scripts is src_sh[:exports code]{/usr/local/sbin}.
+for personal scripts is =/usr/local/sbin=.
 If you don't want to use it in your path simply clone master and 
 when using those functions make sure you type the full path to it 
 (or relative to where you are). Say I'm in my 
-src_sh[:exports code]{~/dox/}. If I didn't put it in my 
-src_sh[:exports code]{/usr/local/sbin} and wanted the median, I 
-would have to say src_sh[:exports]{/bash/sweetistcs/tools/median}.
+=~/dox/=. If I didn't put it in my 
+=/usr/local/sbin= and wanted the median, I 
+would have to say =/bash/sweetistcs/tools/median=.
 Needless to say, I recommend putting this in your path if you plan 
 on using it.
 * About
