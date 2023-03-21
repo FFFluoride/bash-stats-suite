@@ -14,6 +14,6 @@ fi;
 values="$REPLY";
 values+="$args";
 
-variance_value="$(echo "$values" | ./variance)";
+variance_value="$(echo "$values" | variance)";
 
 echo "sqrt($variance_value)" | bc -l;

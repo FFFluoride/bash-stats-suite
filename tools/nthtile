@@ -65,8 +65,7 @@ val2="$val1";
 if [ "$interpolate" = "true" ]; then
     val2="$(echo "$values" | tr " " "\n" | sort -n | tr "\n" " " | cut -d" " -f"$(echo "$rounded + 1" | bc -l)")";
 fi;
-#echo "$values" | ./cum-freq;
-echo "$val1 $val2" | ./mean;
+echo "$val1 $val2" | mean;
 
 #if [ "$nth_place" -gt 1 ] || [ "$nth_place" -lt 0 ]; then
 #    echo "usage $basename [-n {num: 0>= num >=1}]" >&2;
