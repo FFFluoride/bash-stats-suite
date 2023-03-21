@@ -14,8 +14,8 @@ fi;
 values="$REPLY";
 values+="$args";
 
-vals="$(echo "$values" | ./freq | cut -d" " -f1)";
-freqs="$(echo "$values" | ./freq | cut -d" " -f2)";
+vals="$(echo "$values" | freq | cut -d" " -f1)";
+freqs="$(echo "$values" | freq | cut -d" " -f2)";
 
 cum_freqs="$(echo "$freqs" | head -n 1)";
 
