@@ -12,23 +12,4 @@ fi;
 values="$REPLY";
 values+="$args";
 
-words="$(echo "$values" | wc -w)";
-even="$(($words % 2))";
-
-if [ "$even" == 0 ];then
-    n_over_2="$((words / 2))";
-    n_over_2_plus_1="$(($n_over_2 + 1))";
-    med1="$(echo "$values" | cut -d" " -f "$n_over_2")";
-    med2="$(echo "$values" | cut -d" " -f "$n_over_2_plus_1")";
-    echo "$med1 $med2" | ./mean;
-else
-    n_plus_1_over_2="$((($words + 1) / 2))";
-    echo "$n_plus_1_over_2";
-fi;
-
-
-#echo "$even"
-
-#pecho "$even_check";
-
-#echo "$values" | ./cum-freq;
+echo "$values" | ./nthtile -n 0.5;
