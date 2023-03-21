@@ -15,7 +15,7 @@ when using those functions make sure you type the full path to it
 (or relative to where you are). Say I'm in my 
 =~/dox/=. If I didn't put it in my 
 =/usr/local/sbin= and wanted the median, I 
-would have to say =/bash/sweetistcs/tools/median=.
+would have to say =./bash/sweetistcs/tools/median=.
 Needless to say, I recommend putting this in your path if you plan 
 on using it.
 * About
